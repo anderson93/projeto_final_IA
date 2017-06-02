@@ -1,3 +1,10 @@
+'''
+    File name: comparator.py
+    Author: Anderson Henrique de Oliveira Conceicao
+    Date created: 28/05/2017
+    Date last modified: 02/06/2017
+    Python Version: 2.7
+'''
 import pso_v4 as pTEST
 from math import sqrt
 from openpyxl import Workbook, workbook, load_workbook
@@ -29,7 +36,7 @@ def compare(ROW_AUX, pso_POSITION):
     print "CA=", (pso_POSITION[5]/(pso_POSITION[1]-pso_POSITION[0]))**(-1) ,"CP=", pso_POSITION[2]/(pso_POSITION[1]-pso_POSITION[0]), "CC=", (pso_POSITION[1]/pso_POSITION[0])**(-1), "CI=", pso_POSITION[3]/pso_POSITION[4]
     print "\n"
     try:
-        CA = (pso_POSITION[5]/(pso_POSITION[1]-pso_POSITION[0]))**(-1)
+        CA = (pso_POSITION[5]/(pso_POSITION[1]-pso_POSITION[0]))**(-1)      #Calculates the coefficients values8
     except ZeroDivisionError:
         CA = 'inf'
     try:
@@ -61,6 +68,7 @@ def compare(ROW_AUX, pso_POSITION):
         CI_SHEET = QMA_SHEET/IMAI_SHEET    
     except ZeroDivisionError:
         CI_SHEET = 'inf'
+
     print "Those are the selected contributor's parameters:"
     print "CA_SHEET=", CA_SHEET ,"CP_SHEET=", CP_SHEET, "CC_SHEET=", CC_SHEET, "CI_SHEET=", CI_SHEET
     print "\n"
@@ -72,6 +80,7 @@ def compare(ROW_AUX, pso_POSITION):
     print "\n"
     print "Comparing..."
     print "\n"
+
     distance = sqrt((AAET - AAET_SHEET)**2 + (AAST - AAST_SHEET)**2\
                    +(VA - VA_SHEET)**2 + (VI - VI_SHEET)**2\
                    +(QMA - QMA_SHEET)**2 + (IMAI - IMAI_SHEET)**2)

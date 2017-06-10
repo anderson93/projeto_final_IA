@@ -5,7 +5,7 @@
     Date last modified: 02/06/2017
     Python Version: 2.7
 '''
-import pso_v4 as PSO
+import pso as PSO
 from math import sqrt
 from openpyxl import Workbook, workbook, load_workbook
 

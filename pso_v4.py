@@ -1,3 +1,10 @@
+'''
+    File name: pso_v4.py
+    Author: Anderson Henrique de Oliveira Conceicao
+    Date created: 29/05/2017
+    Date last modified: 02/06/2017
+    Python Version: 2.7
+'''
 from math import sqrt, pow, cos, pi, exp
 import random
 import numpy as np
@@ -35,7 +42,7 @@ def pso():
         
         try:
             P = sp.polyfit(X, Y, degree)
-        except sp.RankWarning :
+        except sp.RankWarning :                     #To adjust if the polynom is not well conditioned
             P = sp.polyfit(X, Y, degree-1)
     
         return P
@@ -80,8 +87,8 @@ def pso():
     
     #Parameters of PSO
         
-    MaxIt = 10              #Maximum number of iterations
-    range_cost = 1.5             #Defines the range in which the algorithm will adjust around zero cost
+    MaxIt = 10000              #Maximum number of iterations
+    range_cost = 1.5           #Defines the range in which the algorithm will adjust around zero cost
     nPop = 35                  #Population size (swarm size)
     w = chi                    #Inertia coefficient
     wdamp = 0.99               #Damping ratio of inertia coefficient
@@ -187,9 +194,7 @@ def pso():
                 GlobalBestPosition = list(Swarm[j].Position)
             
             BestCosts.append(GlobalBestCost)         #Stores the best cost value
-            BestPositions.append(GlobalBestPosition) #Stores the best position
-    
-        #print "-->Iteration:",i, "-->Best Cost:", BestCosts[-1], "-->Best Position:", BestPositions[-1]    
+            BestPositions.append(GlobalBestPosition) #Stores the best position    
         
     AAET = unnormalize(BestPositions[-1][0], 0, 4387014266.17000)
     AAST = unnormalize(BestPositions[-1][1], 0, 2561890616.28000)
@@ -201,7 +206,6 @@ def pso():
     # x = AAET = x[0] ; y = AAST = x[1] ; z = VI = x[2] ; v = QMA = x[3] ; w = IMAI = x[4] ; u = VA = x[5]
     print "The results are ready!"
     print "\n"
-    #print "AAET:", AAET, "AAST: ", AAST, "VI:", VI, "QMA:", QMA, "IMAI:", IMAI, "VA:", VA
     print "This was the Best Cost:", BestCosts[-1]
     print "This was the Best Position:", BestPositions[-1]
 

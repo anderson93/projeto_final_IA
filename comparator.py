@@ -10,7 +10,7 @@ from math import sqrt
 from openpyxl import Workbook, workbook, load_workbook
 
 #Opening the data sheet==============================================================================================================================
-wb = load_workbook('v_final_FESP_PadroesDeInfracao.xlsx', read_only = True, data_only=True)
+wb = load_workbook('FESP_PadroesDeInfracao.xlsx', read_only = True, data_only=True)
 ws = wb.active          #Grab the active worksheet
 
 #Acquiring the optimized parameters=================================================================================================================

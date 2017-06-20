@@ -135,7 +135,7 @@ def run(MaxIt=10000):       #MaxIt - Maximum number of iterations
         #Generate random solution
         Swarm[i].Position = list(randArray(nVar))       
         #Initialize velocity
-        Swarm[i].Velocity = [0]*nVar                    
+        Swarm[i].Velocity = np.zeros(nVar)                    
         #Evaluation
         Swarm[i].Cost = fitnessFunc(Swarm[i].Position) 
         #Update personal best position
@@ -200,8 +200,7 @@ def run(MaxIt=10000):       #MaxIt - Maximum number of iterations
     VA   = unnormalize(BestPositions[-1][5], 0, 39944239.59000)
     
     # x = AAET = x[0] ; y = AAST = x[1] ; z = VI = x[2] ; v = QMA = x[3] ; w = IMAI = x[4] ; u = VA = x[5]==============
-    print "The results are ready!"
-    print "\n"
+    print "The results are ready!", "\n"
     print "This was the Best Cost:", BestCosts[-1]
     print "This was the Best Position:", BestPositions[-1]
 
